@@ -4,28 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página 1</title>
-    
+
     <style>
-        body {
-    font-family: Arial, sans-serif;
+    header{
+        width: 100%;
+        height: 70px;
+        background-color: #0b1652;
+        color: #ccc;
+        align-items: center;
+
+        
+    }
+    
+    body {
+    font-family: 'Times New Roman', Times, serif;
     background-color: #bce4e7;
     padding: 20px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
     }
 
     h1 {
         color: rgb(3, 1, 1);
         font-size: 40px;
+        align-items: center;
+        margin-bottom: 10px;
     }
 
     p {
         color: rgb(78, 52, 52);
         font-size: 18px;
+        margin-bottom: 15px;
     }
 
     input{
     
-        border-radius: 15px;
-        padding: 5px;
+        border-radius: 10px;
+        padding: 10px;
         border: 1px solid black;
         width: 100%;
         padding: 10px;
@@ -33,6 +52,8 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         box-sizing: border-box;
+        align-items: center;
+
     }
 
     
@@ -42,57 +63,84 @@
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-        padding: 15px;
+        padding: 20px;
         width: 250px;
         text-align: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+        
+    }
+
+    .login-container:hover{
+        transform: translateY(-5px);
     }
 
 
 
 
+    button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.7s;
+        }
+
+    button:hover {
+            background-color: #266429;
+    }
+    .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+    }
+
+    .inpStyle{
+        font-size: 17px;
+    }
+
 
     </style>
 
 </head>
-
+    <header></header>
 
 <body>
     <h1>Tela de Login</h1>
     <p>Digite seu usuário e senha para entrar no sistema</p>
-    <a href="index2.html">Ir para a Página 2</a>
     <br>
     <br>
     <div class="login-container">
         
-        <label for="inpUsuario">Usuario</label>
+        <label class = "inpStyle" for="inpUsuario">Usuário</label>
         <input type="text" id="inpUsuario">
-        <label for="inpSenha">Senha</label>
+        <label class = "inpStyle" for="inpSenha">Senha</label>
         <input type="password" id="inpSenha">
+        <div id="mensagemErro" class="error-message" style="display: none;">Usuário ou senha incorretos.</div>
+        <br>
         <button onclick="efetuarLogin()">Login</button>
-        
-    </div>
+       
      
 
      <script>
         let usuario = document.getElementById("inpUsuario")
-    let senha = document.getElementById("inpSenha")
-    let error = document.getElementById("loginError").value
-    usuario.focus()
+        let senha = document.getElementById("inpSenha")
+        let mensagemErro = document.getElementById("mensagemErro");
+        usuario.focus()
 
 
     function efetuarLogin(){
         console.log(usuario.value);
         console.log(senha.value)
         if(usuario.value == "Vitor" && senha.value == "1234"){
-            alert("Seja bem vindo")
+            
             window.location = "index2.html"
-            if(usuario.value == "" && senha.value == ""){
-                loginError.innerHTML = "Digite alguma coisa"
-                alert("Por favor, digte alguma coisa!")
         }
         
-        }else{
-            alert("Usuário ou senha incorretos")
+        else{
+            mensagemErro.style.display= "block";
         }
         usuario.value = ''
         senha.value = ''
