@@ -1,14 +1,64 @@
-=<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 2</title>
+    <title>Currículo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #bce4e7;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background-color: #0b1652;
+            color: #76c9c9;
+            text-align: center;
+            padding: 20px;
+            border: black;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #main-content {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .image-container {
+            display: inline-block; 
+        }
+
+        #profile-image {
+            max-width: 200px;
+            border-radius: 50%;
+            display: block;
+            margin: 2 auto; 
+        }
+    </style>
 </head>
-<h1>Voce entrou</h1>
 <body>
-    
-    
+    <div id="header">
+        <h1>Meu Currículo</h1>
+    </div>
+    <div id="main-content">
+        <h2>Dados Pessoais</h2>
+        <div class="image-container">
+            <img id="profile-image" src="foto.png" width="120px" height="120px" alt="foto de perfil">
+        </div>
+        <p>Nome: Vitor Machado Silva</p>
+        <p>E-mail: vitor.machado.silva05@example.com</p>
+        <p>Telefone: (48) 99920-6551</p>
+
+        <h2>Experiência Profissional</h2>
+        <p>Cargo: Analista de Sistemas</p>
+        <p>Empresa: Intelbras</p>
+        <p>Descrição: Desenvolvimento e análise de sistemas na parte de front-end.</p>
+
+        <h2>Formação Acadêmica</h2>
+        <p>Curso: Análise e Desenvolvimento de Sistemas</p>
+        <p>Instituição: Faculdade Municipal de Palhoça</p>
+        <p>Ano de Conclusão: 2026</p>
+    </div>
 </body>
 </html>
