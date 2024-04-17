@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 1</title>
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #bce4e7;
+    padding: 20px;
+    }
+
+    h1 {
+        color: rgb(3, 1, 1);
+        font-size: 40px;
+    }
+
+    p {
+        color: rgb(78, 52, 52);
+        font-size: 18px;
+    }
+
+    input{
+    
+        border-radius: 15px;
+        padding: 5px;
+        border: 1px solid black;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    
+    
+
+    .login-container{
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        width: 250px;
+        text-align: center;
+    }
+
+
+
+
+
+    </style>
+
+</head>
+
+
+<body>
+    <h1>Tela de Login</h1>
+    <p>Digite seu usuário e senha para entrar no sistema</p>
+    <a href="index2.html">Ir para a Página 2</a>
+    <br>
+    <br>
+    <div class="login-container">
+        
+        <label for="inpUsuario">Usuario</label>
+        <input type="text" id="inpUsuario">
+        <label for="inpSenha">Senha</label>
+        <input type="password" id="inpSenha">
+        <button onclick="efetuarLogin()">Login</button>
+        
+    </div>
+     
+
+     <script>
+        let usuario = document.getElementById("inpUsuario")
+    let senha = document.getElementById("inpSenha")
+    let error = document.getElementById("loginError").value
+    usuario.focus()
+
+
+    function efetuarLogin(){
+        console.log(usuario.value);
+        console.log(senha.value)
+        if(usuario.value == "Vitor" && senha.value == "1234"){
+            alert("Seja bem vindo")
+            window.location = "index2.html"
+            if(usuario.value == "" && senha.value == ""){
+                loginError.innerHTML = "Digite alguma coisa"
+                alert("Por favor, digte alguma coisa!")
+        }
+        
+        }else{
+            alert("Usuário ou senha incorretos")
+        }
+        usuario.value = ''
+        senha.value = ''
+        usuario.focus()
+}
+     </script>
+
+ 
+
+
+    
+     
+
+
+</body>
+
+
+</html>
