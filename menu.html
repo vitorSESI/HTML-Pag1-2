@@ -6,22 +6,28 @@
     <title>Document</title>
     <style>
         body {
-            background-color: rgb(105, 92, 92);
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            background-color: rgb(128, 113, 113);
+            border-bottom: solid black 1px;
         }
 
         .cabecalho {
             background-color: #333;
             padding: 10px 0;
             text-align: center;
+            
+            
+            
         }
 
         .abas {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             padding-top: 10px;
+            gap: 80px;
+            transition: 0.6s;
         }
 
         .aba {
@@ -30,26 +36,34 @@
             color: #fff;
             padding: 10px 20px;
             background-color: #666;
-            border-radius: 5px 5px 0 0;
+            border-radius: 5px 5px 5px 5px;
             cursor: pointer;
+            border: solid black 1px;
+            transition: 0.6s;
+            
         }
 
         .aba:hover {
-            background-color: #555;
+            background-color: #3f3f3f;
         }
 
         a {
             text-decoration: none;
             color: #fff;
         }
+
+
+
     </style>
 </head>
 <body>
+    
     <div class="cabecalho">
         <div class="abas">
-            <div class="aba"><a href="https://classroom.google.com/h">Classroom</a></div>
+            <div class="aba"><a href="http://fmpsc.edu.br/">FMP</a></div>
             <div class="aba"><a href="https://github.com/vitorSESI">GitHub</a></div>
-            <div class="aba"><a href="https://exemplo.com">Quiz</a></div>
+            <div class="aba"><a href="./quiz.html">Quiz</a></div>
+            <div class="aba"><a href="./index.html">Login</a></div>
         </div>
     </div>
 </body>
