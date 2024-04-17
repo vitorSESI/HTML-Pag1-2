@@ -31,24 +31,39 @@ h1 {
   font-size: 36px;
   color: #333;
   margin-bottom: 20px;
+  
 }
 
 #pergunta {
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 20px;
+  text-align: center;
+  
+   
 }
 
-.opcao {
-  margin-bottom: 8px;
+.opcao-container {
   display: flex;
   flex-direction: column;
- 
   
 }
 
-.opcao label {
+.opcao {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 42%;
+  
+}
+
+.opcao input[type="radio"] {
+  margin-right: 10px;
+}
+
+.opcao-label {
   font-size: 18px;
+  text-align: center;
 }
 
 button {
@@ -70,16 +85,30 @@ button:hover {
   font-size: 20px;
   font-weight: bold;
   margin-top: 20px;
+  text-align: center;
+  color:#4CAF50
 }
+
+#resultadoErro{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+  color:#b9281d
+
+}
+
+
 </style>
 </head>
 <body>
 <div class="quiz-container">
   <h1>Jogo Quiz</h1>
   <div id="pergunta"></div>
-  <div id="opcoes" class="opcao"></div>
+  <div class="opcao-container" id="opcoes"></div>
   <button onclick="verificarResposta()">Verificar Resposta</button>
   <div id="resultado"></div>
+  <div id="resultadoErro"></div>
 </div>
 <script>
 const perguntas = [
@@ -110,19 +139,22 @@ function carregarPergunta() {
   opcoesElemento.innerHTML = "";
 
   perguntas[perguntaAtual].opcoes.forEach(opcao => {
-    const opcaoElemento = document.createElement("input");
-    opcaoElemento.type = "radio";
-    opcaoElemento.name = "opcao";
-    opcaoElemento.value = opcao;
+    const opcaoElemento = document.createElement("div");
     opcaoElemento.classList.add("opcao");
+
+    const radioElemento = document.createElement("input");
+    radioElemento.type = "radio";
+    radioElemento.name = "opcao";
+    radioElemento.value = opcao;
+    radioElemento.classList.add("opcao-radio");
 
     const labelElemento = document.createElement("label");
     labelElemento.textContent = opcao;
     labelElemento.classList.add("opcao-label");
 
+    opcaoElemento.appendChild(radioElemento);
+    opcaoElemento.appendChild(labelElemento);
     opcoesElemento.appendChild(opcaoElemento);
-    opcoesElemento.appendChild(labelElemento);
-    opcoesElemento.appendChild(document.createElement("br"));
   });
 }
 
@@ -137,11 +169,12 @@ function verificarResposta() {
   const respostaUsuario = opcoesSelecionadas[0].value;
   const respostaCorreta = perguntas[perguntaAtual].resposta;
   const resultadoElemento = document.getElementById("resultado");
+  const resultadoErrado = document.getElementById("resultadoErro");
 
   if (respostaUsuario === respostaCorreta) {
     resultadoElemento.textContent = "Resposta correta!";
   } else {
-    resultadoElemento.textContent = `Resposta incorreta. A resposta correta é: ${respostaCorreta}`;
+    resultadoErrado.textContent = `Resposta incorreta. A resposta correta é: ${respostaCorreta}`;
   }
 
   perguntaAtual++;
